@@ -1,14 +1,17 @@
 "use client"
 import React from 'react';
-import { deleteReservat } from '@/lib/axios';
 import { Trash2 } from 'lucide-react';
 import { toast } from 'react-toastify';
 
 const DeleteReservation = ({ ID }) => {
   const handleDelete = async () => {
     try {
-      const response = await deleteReservat({ID});
-      console.log("Deletion successful:", response.data.message);
+      const response = await fetch(`/api/reservations/delete/${ID}/`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
       toast.success("Deleted successfully!");
       window?.location.reload(); 

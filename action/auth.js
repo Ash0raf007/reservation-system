@@ -32,7 +32,6 @@ export const signInAction = async (formData) => {
     
   cookieStore?.set('token', user?.data?.token, cookieOptions);
   cookieStore?.set('role', user?.data?.role);
-  cookieStore?.set('userId', decoded?.user_id);
     token = user?.data?.token;
     role=user.data.role
     redirectPath = role==="admin" ? "/admin/dashboard":"/user/make-reservation";

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import { toast } from "react-toastify";
-import { makeReservat } from '@/lib/axios';
 import Link from "next/link";
 
 const MakeReservation = () => {
@@ -18,9 +17,21 @@ const MakeReservation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await makeReservat(formData);
+      const response = await fetch('/api/reservations/create', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create reservation');
+      }
+
+      const data = await response.json();
       toast.success("Reservation created successfully!");
-      console.log(response);
+      console.log(data);
     } catch (error) {
       console.log("error ahaaaaaaa", error);
       toast.error("Error creating reservation");

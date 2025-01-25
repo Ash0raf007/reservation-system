@@ -2,6 +2,7 @@
 import { getReservat } from '@/lib/axios';
 import MakeReservation from '../../_components/MakeReservation';
 import Link from 'next/link';
+import EditReservation from '@/app/_components/custmizeReservtions/EditReservation';
 
 const page = async () => {
   const res = await getReservat();
@@ -13,8 +14,9 @@ const page = async () => {
         {res.data.map((reservation) => (
           <div
             key={reservation.id}
-            className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
+            className="flex justify-between bg-white shadow-md rounded-lg p-4 border border-gray-200"
           >
+            <div>
             <h2 className="text-xl font-semibold text-gray-800">
               Reservation {reservation.id}
             </h2>
@@ -30,6 +32,9 @@ const page = async () => {
             <p className="text-gray-600">
               <span className="font-medium">Room Number:</span> {reservation.guests}
             </p>
+            </div>
+            <EditReservation ID={reservation.id}/>
+
           </div>
         ))}
       </div>
