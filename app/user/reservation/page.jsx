@@ -18,19 +18,28 @@ const page = async () => {
           >
             <div>
             <h2 className="text-xl font-semibold text-gray-800">
-              Reservation {reservation.id}
+            Reservation ID	 {reservation.id}
             </h2>
             <p className="text-gray-600">
-              <span className="font-medium">Start Date:</span> {reservation.user}
+              <span className="font-medium">Client name:</span> {reservation.user}
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">End Date:</span> {reservation.hotel}
+              <span className="font-medium">Hotel name:</span> {reservation.hotel}
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">Number of Guests:</span> {reservation.roomType}
+              <span className="font-medium">Check in:</span> {reservation.checkIn}
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">Room Number:</span> {reservation.guests}
+              <span className="font-medium">Check out:</span> {reservation.checkOut}
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Room Number:</span> {reservation.roomType}
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Number of Guests :</span> {reservation.guests}
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Reservation Status :</span> {reservation.status}
             </p>
             </div>
             <EditReservation ID={reservation.id}/>

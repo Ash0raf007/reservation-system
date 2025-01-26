@@ -20,6 +20,8 @@ const page = async () => {
               <th className="border border-gray-300 px-4 py-2 text-left">Hotel</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Room Type</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Number of Guests</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Check in</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Check out</th>
             </tr>
           </thead>
           <tbody>
@@ -30,6 +32,8 @@ const page = async () => {
                 <td className="border border-gray-300 px-4 py-2">{reservation.hotel}</td>
                 <td className="border border-gray-300 px-4 py-2">{reservation.roomType}</td>
                 <td className="border border-gray-300 px-4 py-2">{reservation.guests}</td>
+                <td className="border border-gray-300 px-4 py-2">{reservation.checkIn}</td>
+                <td className="border border-gray-300 px-4 py-2">{reservation.checkOut}</td>
                 <td className="border border-gray-300 px-4 py-2">
                   <DeleteReservation ID={reservation.id}/>
                 </td>

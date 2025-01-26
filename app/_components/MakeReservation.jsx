@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const MakeReservation = () => {
   const [formData, setFormData] = useState({
+    user:"",
     hotel: "Hotel A", 
     checkIn: "",
     checkOut: "",
@@ -46,6 +47,18 @@ const MakeReservation = () => {
     <div className="px-4 md:px-20 lg:px-40 py-8">
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-xl mx-auto">
         <h2 className="text-3xl text-green-500 text-center mb-6">Make a Reservation</h2>
+       
+        <label className="flex flex-col gap-2">
+          client name:
+          <Input
+            required
+            type="text"
+            name="user"
+            value={formData.user}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-lg"
+          />
+          </label>
         <label className="flex flex-col gap-2">
           Hotel:
           <select
